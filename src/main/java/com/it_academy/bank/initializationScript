@@ -1,0 +1,14 @@
+CREATE TABLE Users(userId INTEGER(10) PRIMARY KEY NOT NULL,
+name VARCHAR(50) NOT NULL,
+address VARCHAR(255));
+
+CREATE TABLE Transactions (transactionId INTEGER(10) PRIMARY KEY NOT NULL,
+accountId INTEGER(10),
+amount INTEGER(15),
+FOREIGN KEY (accountId) REFERENCES Accounts (accountId));
+
+CREATE TABLE Accounts(accountId INTEGER(10) PRIMARY KEY NOT NULL,
+userId INTEGER(10),
+balance INTEGER(15),
+currency VARCHAR(10),
+FOREIGN KEY(userId) REFERENCES Users(userId));
